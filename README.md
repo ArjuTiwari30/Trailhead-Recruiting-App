@@ -3,26 +3,65 @@ Trailhead project: Build a Data Model for a Recruiting App
 
 ## 🧭 Project Overview
 This project is part of Salesforce Trailhead’s hands-on module: **Build a Data Model for a Recruiting App**.  
-It simulates a basic recruiting system where candidates apply for jobs and go through the hiring process.
+It focuses on building a custom recruiting system where hiring teams can post jobs, review candidates, and manage job postings using custom Salesforce objects and relationships.
 
-## 🔧 Features Implemented
-- Created Custom Objects:
-  - Position
-  - Job Application
-  - Candidate
-- Defined Relationships:
-  - One-to-Many: Position → Job Application
-  - Lookup from Job Application → Candidate
-- Added Fields:
-  - Picklists (Job Status, Application Stage)
-  - Currency, Date, Text fields
-- Used Schema Builder to visualize and plan relationships
+## 🔧 Modules & Features Implemented
+
+### 1️⃣ Create a Custom Object for Reviews
+- Created custom object: `Review`
+- Set display format: e.g., `REV-{0000}`
+- Enabled reports & activities
+
+### 2️⃣ Create a Custom Object for Job Posting Sites
+- Created object: `Job Posting Site`
+- Fields added:
+  - **Job Posting Site URL** (URL)
+  - **Active** (Picklist – Active / Inactive)
+  - **Technical Site** (Checkbox)
+  - **Description** (Text Area)
+- Added this object to the **Recruiting App**
+
+### 3️⃣ Create a Custom Junction Object for Job Postings
+- Created object: `Job Posting` (Auto Number)
+- Master-Detail Relationships:
+  - **Position** (MDR)
+  - **Job Posting Site** (MDR)
+- Used this as a junction object between `Position` and `Job Posting Site`
+
+### 4️⃣ Customize Page Layouts
+- Edited page layouts for `Job Posting`, `Review`, and `Job Posting Site`
+- Included fields like:
+  - **Site Name**
+  - **Job Posting Site URL**
+  - **Technical Site Description**
+
+### 5️⃣ Enter Sample Data
+- Created sample `Position` record:
+  - **Title**: Super Sales Rep
+  - Associated `Job Posting Site` with site name & URL
+
+### 6️⃣ Create a Self-Relationship on Position Object
+- Added **Lookup Relationship** to `Position` itself
+- Field Label: `Related Position`
+- Set up **Lookup Filters** to control related values
+- Created example entry: `Awesome Sales Rep` → related to `Super Sales Rep`
+
+### 7️⃣ Create Custom Fields on Review
+- Added:
+  - **Picklist Field** (for review rating/status)
+  - **Custom Text Field** (for comments or reviewer name)
+
 
 ## 🧠 Learnings
-- Hands-on with object relationships
-- Planning real-world systems in Salesforce
-- Used Object Manager and Schema Builder effectively
-- Field types and validation setup
+
+- Master-Detail and Lookup relationships (including self-relationship)
+- Junction object design in Salesforce
+- Custom field types: picklist, checkbox, text, URL
+- Customizing page layouts and app structure
+- Lookup filters for better UX
+- Working with related data through schema builder
+
+
 
 ## 📌 Trailhead Module Link
 [Trailhead: Build a Data Model for a Recruiting App](https://trailhead.salesforce.com/content/learn/projects/build-a-data-model-for-a-recruiting-app)
